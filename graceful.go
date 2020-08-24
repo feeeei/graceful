@@ -478,7 +478,7 @@ func (srv *Server) shutdown(shutdown chan chan struct{}, kill chan struct{}) {
 }
 
 func (srv *Server) newTCPListener(addr string) (net.Listener, error) {
-	conn, err := net.Listen("tcp", addr)
+	conn, err := net.Listen("unix", addr)
 	if err != nil {
 		return conn, err
 	}
